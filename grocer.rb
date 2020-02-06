@@ -18,7 +18,13 @@ end
   # Consult README for inputs and outputs
   
 def consolidate_cart(cart)
-  pp cart
+  n_array = []
+  b_index = 0
+  while b_index < cart.length do
+    n_array[:count] += cart[b_index]
+    b_index += 1
+  end
+  return n_array
 end
   # Consult README for inputs and outputs
   #
