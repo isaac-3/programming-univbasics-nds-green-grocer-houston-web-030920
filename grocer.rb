@@ -26,9 +26,9 @@ def consolidate_cart(cart)
       n_item[:count] += 1
     else
       n_item = {
-        :item => cart[b_index][:item]
-        :price => cart[b_index][:price]
-        :clearance => cart[b_index][:clearance]
+        :item => cart[b_index][:item],
+        :price => cart[b_index][:price],
+        :clearance => cart[b_index][:clearance],
         :count => 1
       }
       n_array << n_item
