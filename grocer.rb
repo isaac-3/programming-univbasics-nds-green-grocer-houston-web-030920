@@ -7,13 +7,10 @@ def find_item_by_name_in_collection(name, collection)
   while a_index < collection.length do
     if collection[a_index][:item] == name
       return collection[a_index]
-    # if f_hash[:item] == collection[a_index][name]
-    #   f_hash[:item] = collection[a_index][:item]
-    # else f_hash[:item] = nil
     end
   a_index += 1
   end
-  return f_hash
+  nil
 end
       
   # Implement me first!
