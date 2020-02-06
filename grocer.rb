@@ -21,7 +21,18 @@ def consolidate_cart(cart)
   n_array = []
   b_index = 0
   while b_index < cart.length do
-    n_array[:count] += cart[b_index]
+    n_item = find_item_by_name_in_collection(cart[b_index][:item], n_array)
+    if n_item
+      n_item[:count] += 1
+    else
+      n_item = {
+        :item => cart[b_index][:item]
+        :price => cart[b_index][:price]
+        :clearance => cart[b_index][:clearance]
+        :count => 1
+      }
+      n_array << n_item
+    end
     b_index += 1
   end
   return n_array
