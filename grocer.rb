@@ -4,7 +4,7 @@ require 'pry'
 def find_item_by_name_in_collection(name, collection)
   f_hash = {}
   a_index = 0
-  while a_index < collection.length do
+  while a_index < collection[:item].length do
     if f_hash[:item] == collection[a_index][name]
       f_hash[:item] = collection[a_index][:item]
     else f_hash[:item] = collection[a_index][:item]
