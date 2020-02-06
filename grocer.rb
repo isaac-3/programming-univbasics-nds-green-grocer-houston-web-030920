@@ -1,9 +1,23 @@
+require 'pp'
+require 'pry'
+
 def find_item_by_name_in_collection(name, collection)
+  f_hash = {}
+  a_index = 0
+  while a_index < collection.length do
+    if f_hash[:item] == collection[a_index][name]
+      f_hash[:item] = collection[a_index][name]
+    else f_hash[:item] = nil
+    end
+  a_index += 1
+  end
+  return f_hash
+end
+      
   # Implement me first!
   #
   # Consult README for inputs and outputs
-end
-
+  
 def consolidate_cart(cart)
   # Consult README for inputs and outputs
   #
