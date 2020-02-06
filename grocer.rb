@@ -43,10 +43,34 @@ end
   # change `cart` (i.e. mutate) it. It's easier to return a new thing.
 
 def apply_coupons(cart, coupons)
+  counter = 0
+  while counter < coupons.length do
+    c_item = find_item_by_name_in_collection(coupons[counter][:item], cart)
+    coupon_item_name = "#{coupons[counter][:item]} W/COUPON"
+    cart_item_with_coupon = find_item_by_name_in_collection(coupon_item_name, cart)
+    if c_item && c_item[:count] >= coupons[counter][:num]
+      if cart_item_with_coupon
+        cart_item_with_coupon[:count] += coupons[counter][:num]
+        c_item[:count] -= coupons[counter][:num]
+      else
+        cart_item_with_coupon = {
+          :item => coupon_item_name,
+          :price => coupons[counter][:cost] / coupons[counter][:num],
+          :count => coupons[counter][:num],
+          clearance => c_item[:clearance]
+        }
+        cart << cart_item_with_coupon
+        c_item[:count] -= coupons[counter][:num]
+      end
+    end  
+    counter += 1
+  end
+  cart
+end
+  
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
-end
 
 def apply_clearance(cart)
   # Consult README for inputs and outputs
